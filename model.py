@@ -9,9 +9,9 @@ import asyncio
 import edge_tts
 from playsound import playsound
 import os 
-data_train_path="C:\\Users\\mansu\\AppData\\Local\\Programs\\Python\\Python39\\p2\\archive (6)\\imagedataset\\train"
-data_test_path="C:\\Users\\mansu\\AppData\\Local\\Programs\\Python\\Python39\\p2\\archive (6)\\imagedataset\\test"
-data_val_path="C:\\Users\\mansu\\AppData\\Local\\Programs\\Python\\Python39\\p2\\archive (6)\\imagedataset\\train"
+data_train_path="train path"
+data_test_path="test path"
+data_val_path="val path"
 img_width=180
 img_height=180
 data_train=tf.keras.utils.image_dataset_from_directory(
@@ -48,7 +48,11 @@ model=Sequential([
 model.compile(optimizer='adam',loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),metrics=['accuracy'])
 epochs_size=25
 history=model.fit(data_train,validation_data=data_val,epochs=epochs_size)
-epochs_range=range(epochs_size)
+epochs_range=range(epochs_size) 
+model_save_path = "path_to_save_model/model_name.h5"  # Specify your desired path and name for the model file
+model.save(model_save_path)
+"""
+this code is just to check whether our code is predicting correctly or not 
 #predicting image name
 image="C:\\Users\\mansu\\OneDrive\\Desktop\\WhatsApp Image 2024-09-14 at 10.44.39_2aaa27a8.jpg"
 image=tf.keras.utils.load_img(image,target_size=(img_height,img_width))
@@ -58,7 +62,6 @@ predict=model.predict(img_bat)
 score=tf.nn.softmax(predict)
 s='plant in image is {} with accuracy of {:0.2f}'.format(data_cat[np.argmax(score)], np.max(score) * 100)
 print(s)
-"""
 #convertion text to speech
 async def text_to_speech(text):
     voice = "en-US-AriaNeural"
