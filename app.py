@@ -30,23 +30,23 @@ def answer_question():
 
         text_input=text_input.lower()
         if text_input=="shatavari":
-            return render_template('shatavari.html',answer=url_for('static',filename="images//shatavari.jpeg"))
+            return render_template('shatavari.html',answer=url_for('static',filename="shatavari.jpeg"))
         elif text_input=="turmeric":
-            return render_template('turmeric.html',answer=url_for('static',filename="images//turmeric.jpeg"))
+            return render_template('turmeric.html',answer=url_for('static',filename="turmeric.jpeg"))
         elif text_input=="manjistha":
-            return render_template('manjistha.html',answer=url_for('static',filename="images//manjistha.jpeg"))
+            return render_template('manjistha.html',answer=url_for('static',filename="manjistha.jpeg"))
         elif text_input=="brahmi":
-            return render_template('brahmi.html',answer=url_for('static',filename="images//brahmi.jpeg"))
+            return render_template('brahmi.html',answer=url_for('static',filename="brahmi.jpeg"))
         elif text_input=="ashwadgama":
-            return render_template('ashwadgama.html',answer=url_for('static',filename="images//ashwadgama.jpeg"))
+            return render_template('ashwadgama.html',answer=url_for('static',filename="ashwadgama.jpeg"))
         elif text_input=="aloevara":
-            return render_template('alovera.html',answer=url_for('static',filename="images//aloevara.jpeg"))
+            return render_template('alovera.html',answer=url_for('static',filename="aloevara.jpeg"))
         elif text_input=="tulsi":
-            return  render_template('tulsi.html',answer=url_for('static',filename="images//tulsi.jpg"))
+            return  render_template('tulsi.html',answer=url_for('static',filename="tulsi.jpg"))
         elif text_input=="neem":
-            return render_template('neem.html',answer=url_for('static',filename="images//neem.jpg"))
+            return render_template('neem.html',answer=url_for('static',filename="neem.jpg"))
         elif text_input=="nagfani":
-            return render_template('nagfani.html',answer=url_for('static',filename="images//nagfani.jpg"))
+            return render_template('nagfani.html',answer=url_for('static',filename="nagfani.jpg"))
         
 
 #Route to handle file upload
@@ -74,7 +74,7 @@ def upload_file():
         data_cat = ['Manjistha', 'aloevara', 'ashwadgama', 'brahmi', 'nagfani', 'neem', 'shatavari', 'tulsi', 'turmeric']  # Replace with actual categories
 
         # Load the saved model
-        model = tf.keras.models.load_model("C:\\Users\\mansu\\AppData\\Local\\Programs\\Python\\Python39\\p2.keras")
+        model = tf.keras.models.load_model("model path")
 
         # Predict the image
         image_path = saved_path
